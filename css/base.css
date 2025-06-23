@@ -1,0 +1,548 @@
+/* ==========================================================================
+base.css — Global Styles & Variables
+Description: Defines root variables, resets, base styles, and utilities.
+Author: Sai Manas Pandrangi (Research Assistant)
+
+University: University of British Columbia
+Lab: Collaborative Digital Heritage Studio (CoDHerS)
+Team: CoDHerS Research Assistant Team
+Created: 2025-06-08
+Updated: 2025-06-22
+========================================================================== */
+
+/* ==========================================================================
+Root Variables
+========================================================================== */
+
+:root {
+    --color-primary-1: #121212;  /* Light charcoal */
+    --color-primary-2: #fbf0de;  /* Background beige */
+    --color-primary-3: #a3bad4;  /* Soft blue */
+    --color-primary-4: #df6732;  /* Accent orange */
+    --color-primary-5: #6d7f33;  /* Olive green */
+  
+    --color-secondary-1: #446a7c;  /* Blue-grey */
+    --color-secondary-2: #5a6391;  /* Slate blue */
+    --color-secondary-3: #b9bbc1;  /* Light grey */
+    --color-secondary-4: #c23d37;  /* Red-orange */
+    --color-secondary-5: #ef9606;  /* Amber */
+    --color-secondary-6: #52593a;  /* Olive green */
+    --color-secondary-7: #dde4b9;  /* Light green */
+  
+    --font-base: 'Comfortaa', sans-serif;
+    --font-color-base: #ffffff;  /* white */
+    --font-color-footer: #888888; /* grey */
+    --font-size-base: 16px;
+    --border-radius: 0.25rem;
+  }
+  
+  /* ==========================================================================
+  Reset & Box Sizing
+  ========================================================================== */
+  
+  *, *::before, *::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+  }
+  
+  /* ==========================================================================
+  Base Styles
+  ========================================================================== */
+  
+  body {
+    background-color: var(--color-primary-1);
+    padding: 1rem;
+  
+    font-family: var(--font-base);
+    font-size: var(--font-size-base);
+    color: var(--font-color-base);
+    line-height: 1.5;
+
+    overflow-y: hidden;
+  }
+  
+  /* ==========================================================================
+  Typography Styles
+  ========================================================================== */
+  
+  h1, h2, h3, h4, h5, h6 {
+    margin-bottom: 0.5rem;
+    font-weight: 600;
+  }
+  
+  a {
+    color: var(--color-primary-4);
+    text-decoration: none;
+  }
+  
+  a:hover {
+    text-decoration: underline;
+  }
+  
+  /* ==========================================================================
+  Component Classes
+  ========================================================================== */
+  
+  /* Buttons */
+  button, .btn {
+    display: inline-block;
+    padding: 0.75rem 1.75rem;
+    border: none;
+    border-radius: 0.5rem;
+    cursor: pointer;
+  
+    background: linear-gradient(135deg, #dd9e73, #98613c);
+    color: var(--font-color-base);
+  
+    font-weight: 600;
+    font-size: 1rem;
+    letter-spacing: 0.03em;
+    text-align: center;
+    text-decoration: none;
+  
+    box-shadow: 0 4px 8px rgba(223, 103, 50, 0.4);
+  
+    transition: background 0.3s ease, box-shadow 0.3s ease, transform 0.15s ease;
+    user-select: none;
+  }
+  
+  button:hover, .btn:hover,
+  button:focus-visible, .btn:focus-visible {
+    background: linear-gradient(135deg, #98613c, #a05625);
+    transform: scale(1.05);
+    outline: none;
+  }
+  
+    
+  
+  /* Forms */
+    input, select, textarea {
+    font: inherit;
+    padding: 0.5rem;
+    margin-bottom: 1rem;
+    border: 1px solid var(--color-primary-1);
+    border-radius: var(--border-radius);
+    width: 100%;
+  }
+  
+  /* Labels */
+  label {
+    margin-bottom: 6px;
+    font-weight: bold;
+    display: block;
+    text-align: left;
+  }
+  
+  /* Responsive container */
+  .container {
+    background-color: #1e1e1e;
+    padding: clamp(1.5rem, 5vw, 3rem);
+    border-radius: 12px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.9);
+    
+    width: 100%;
+    max-width: 500px;
+    margin: 0 1rem 20px;
+    box-sizing: border-box;
+    text-align: center;
+  }
+  
+  .container h1 {
+    text-align: center;
+  }
+  
+  
+  /* Footer text */
+  .footer-text {
+    text-align: center;
+    font-size: 12px;
+    margin-top: 30px;
+    color: var(--font-color-footer);
+    display: block;
+    width: 100%;
+    clear: both;
+  }
+
+  /* Error text */
+  .error-text {
+    list-style-type: disc;
+    color: var(--color-secondary-4);
+    font-size: 0.75rem;
+    font-style: italic;
+    text-align: left;
+  }
+  
+  /* ==========================================================================
+  Utility Classes
+  ========================================================================== */
+  
+  /* Text alignment */
+  .text-center {
+    text-align: center;
+  }
+  
+  /* Margin-top */
+  .mt-1 { margin-top: 0.25rem; }  /* 4px */
+  .mt-2 { margin-top: 0.5rem; }   /* 8px */
+  .mt-3 { margin-top: 1rem; }     /* 16px */
+  
+  /* Centered elements */
+  .centered-page {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+  }
+
+  /* ==========================================================================
+  App-Specific Classes
+  ========================================================================== */
+
+/* -------------------------------------------------------
+   HOMESCREEN
+-------------------------------------------------------- */
+
+#home-screen {
+    position: fixed;
+    inset: 0;
+    z-index: 10;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background: url("/images/bg/utg_homescreen_bg.png") no-repeat center/cover;
+    overflow: visible;
+  }
+  
+  /* Floating star animation layer */
+  #stars-container {
+    position: fixed;
+    inset: 0;
+    z-index: 5;
+    pointer-events: none;
+    animation: driftUpCurve 20s linear infinite;
+  }
+  
+  @keyframes driftUpCurve {
+    0% { transform: translate(0, 0); }
+    25% { transform: translate(10px, -30px); }
+    50% { transform: translate(20px, -60px); }
+    75% { transform: translate(10px, -90px); }
+    100% { transform: translate(0, -120px); }
+  }
+  
+  /* All direct children except stars */
+  #home-screen > *:not(#stars-container) {
+    position: relative;
+    z-index: 10;
+  }
+  
+  /* -------------------------------------------------------
+   HELPBOX MODAL
+--------------------------------------------------------- */
+
+/* Modal overlay with semi-transparent black background */
+#helpbox-modal {
+    position: fixed;
+    inset: 0;
+    z-index: 3000;
+    background-color: rgba(0, 0, 0, 0.85);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  /* Modal content box with black glow */
+  .helpbox-content {
+    background-color: var(--color-primary-1);
+    color: #fff;
+    border-radius: 12px;
+    padding: 2rem;
+    width: 90vw;
+    max-width: 1080px;
+    text-align: center;
+    box-shadow: 0 0 30px rgba(0, 0, 0, 1); /* strong black glow */
+    position: relative;
+    z-index: 1;
+  }
+  
+  /* Images inside helpbox with subtle black shadow */
+  .helpbox-content img {
+    max-width: 100%;
+    height: auto;
+    margin: 1rem 0;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+  }
+  
+  /* Close button styling with black shadow */
+  #helpbox-close {
+    position: absolute;
+    top: 1.125rem;
+    right: 0.75rem;
+    background: none;
+    border: none;
+    font-size: 1.5rem;
+    color: white;
+    cursor: pointer;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 1);
+    z-index: 101;
+  }
+  
+  /* Helpbox open button */
+  #helpbox-button {
+    position: fixed;
+    bottom: 1.5rem;
+    right: 1.5rem;
+    background-color: var(--color-primary-1);
+    color: #fff;
+    border: none;
+    border-radius: 50%;
+    width: 48px;
+    height: 48px;
+    font-size: 24px;
+    cursor: pointer;
+    text-align: justify;
+    z-index: 20;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+
+  /* -------------------------------------------------------
+     ROTATING LOGO
+  -------------------------------------------------------- */
+  
+  #rotating-wrapper {
+    display: inline-block;
+    transition: transform 0.15s ease 0.02s;
+  }
+  
+  #rotating-wrapper:hover {
+    transform: scale(1.175);
+  }
+  
+  #rotating-logo {
+    width: 500px;
+    height: auto;
+    object-fit: contain;
+    display: block;
+    cursor: pointer;
+    animation: rotateInfinite 12s linear infinite;
+    margin: 2rem 0;
+    z-index: 2;
+  }
+  
+  @keyframes rotateInfinite {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+  }
+  
+  /* -------------------------------------------------------
+     GAME AREA
+  -------------------------------------------------------- */
+  
+  #game-area {
+    position: fixed;
+    inset: 0;
+    z-index: 1;
+    display: none;
+    background: url("/images/bg/utg_l1_background.png") no-repeat center/cover;
+  }
+  
+  /* -------------------------------------------------------
+     SCORE DISPLAY
+  -------------------------------------------------------- */
+  
+  #score {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    min-width: 140px;
+    padding: 12px 20px;
+    border-radius: 16px;
+    background: linear-gradient(135deg, #dd9e73, #98613c);
+    box-shadow: 0 0 8px 3px rgba(60, 40, 20, 0.7);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font: bold 1.7rem var(--font-base);
+    color: white;
+    cursor: default;
+    user-select: none;
+    white-space: nowrap;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    z-index: 1000;
+  }
+  
+  #score:hover {
+    transform: scale(1.05);
+    box-shadow: 0 0 14px 6px rgba(60, 40, 20, 1);
+  }
+  
+  @keyframes pulseGlow {
+    0%, 100% { box-shadow: 0 0 6px 3px rgba(60, 40, 20, 0.7); }
+    50% { box-shadow: 0 0 14px 6px rgba(60, 40, 20, 1); }
+  }
+  
+  #score.pulse {
+    animation: pulseGlow 0.6s ease-in-out;
+  }
+  
+  /* -------------------------------------------------------
+     LETTER TILES
+  -------------------------------------------------------- */
+  
+  .letter {
+    width: 120px;
+    height: 120px;
+    position: absolute;
+    border-radius: 16px;
+    box-shadow: 0 0 6px 3px rgba(60, 40, 20, 0.7);
+    cursor: default;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease, opacity 0.3s ease;
+    z-index: 1;
+  }
+  
+  .letter img {
+    width: 90%;
+    height: 90%;
+    object-fit: contain;
+    border-radius: 12px;
+    pointer-events: none;
+    user-select: none;
+  }
+  
+  .letter:hover {
+    transform: scale(1.25);
+    box-shadow: 0 0 10px 4px rgba(60, 40, 20, 1);
+    z-index: 10;
+  }
+  
+  /* -------------------------------------------------------
+     END SCREEN OVERLAY
+  -------------------------------------------------------- */
+  
+  #end-screen-overlay {
+    position: fixed;
+    inset: 0;
+    display: none;
+    justify-content: center;
+    align-items: center;
+    background: url('/images/bg/utg_endscreen_bg.png') no-repeat center/cover;
+    box-shadow: inset 0 0 50px 15px rgba(221, 158, 115, 0.5);
+    animation: fadeInOverlay 0.5s ease forwards;
+    z-index: 2000;
+  }
+  
+  #end-screen-overlay.visible {
+    display: flex;
+  }
+  
+  .endscreen-popup {
+    background: #dd9e73;
+    color: #5c3d1a;
+    font-family: var(--font-base);
+    padding: 3rem 3.5rem;
+    width: 90%;
+    max-width: 420px;
+    border-radius: 20px;
+    border: 2px solid #d1874a;
+    text-align: center;
+    box-shadow:
+      0 4px 15px rgba(221, 158, 115, 0.35),
+      0 0 12px 3px rgba(221, 158, 115, 0.3);
+    animation: popupJiggle 2.5s ease-in-out infinite;
+    user-select: none;
+  }
+  
+  .endscreen-popup h2 {
+    font-size: 2.6rem;
+    margin-bottom: 1.2rem;
+    color: #000;
+    text-shadow: 0 0 6px rgba(221, 158, 115, 0.8);
+  }
+  
+  .endscreen-popup p {
+    font-size: 1.4rem;
+    margin-bottom: 2.2rem;
+    font-weight: 600;
+    color: #000;
+    text-shadow: 0 0 4px rgba(221, 158, 115, 0.6);
+  }
+  
+  .endscreen-popup strong#final-score {
+    font-size: 2rem;
+    color: #000;
+    text-shadow: 0 0 5px rgba(221, 158, 115, 0.9);
+  }
+  
+  /* Endscreen Button */
+  #back-to-home-btn {
+    background: linear-gradient(45deg, #dd9e73, #e7b37c);
+    border: none;
+    border-radius: 35px;
+    padding: 1rem 2.8rem;
+    font-size: 1.3rem;
+    font-weight: 700;
+    color: #4a3211;
+    cursor: pointer;
+    box-shadow: 0 0 10px rgba(221, 158, 115, 0.6);
+    transition: transform 0.15s ease, box-shadow 0.3s ease;
+    text-transform: uppercase;
+    letter-spacing: 1.2px;
+    user-select: none;
+  }
+  
+  #back-to-home-btn:hover,
+  #back-to-home-btn:focus {
+    transform: scale(1.05);
+    box-shadow: 0 0 16px rgba(221, 158, 115, 0.9);
+    outline: none;
+  }
+  
+  #back-to-home-btn:active {
+    transform: scale(0.97);
+    box-shadow: 0 0 8px rgba(180, 140, 70, 0.7);
+  }
+  
+  @keyframes fadeInOverlay {
+    from { opacity: 0; }
+    to { opacity: 1; }
+  }
+  
+  @keyframes popupJiggle {
+    0%, 100% { transform: translateX(0) rotate(0deg); }
+    25% { transform: translateX(-1.5px) rotate(-0.7deg); }
+    50% { transform: translateX(1.5px) rotate(0.7deg); }
+    75% { transform: translateX(-1px) rotate(-0.5deg); }
+  }
+  
+  /* -------------------------------------------------------
+     BACK BUTTON
+  -------------------------------------------------------- */
+  
+  #back-btn {
+    position: fixed;
+    top: 1.5rem;
+    left: 1.5rem;
+    background-color: var(--color-primary-1);
+    border: none;
+    border-radius: 0.5rem;
+    font-size: 1rem;
+    color: white;
+    cursor: pointer;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+    padding: 0.75rem 1.75rem;
+    z-index: 20;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
